@@ -1,0 +1,53 @@
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background-color: #f0f0f0;
+    font-family: sans-serif;
+}
+
+.container {
+    text-align: center;
+    position: relative; /* So we can place the pointer on top */
+}
+
+.wheel {
+    width: 300px;
+    height: 300px;
+    border-radius: 50%; /* Makes it a circle */
+    border: 5px solid #333;
+    /* This creates the slices! 4 colors, 25% each */
+    background: conic-gradient(
+        #FF6384 0% 25%,
+        #36A2EB 25% 50%,
+        #FFCE56 50% 75%,
+        #4BC0C0 75% 100%
+    );
+    /* The Transition is the magic that makes it spin smoothly */
+    transition: transform 3s cubic-bezier(0.25, 0.1, 0.25, 1);
+}
+
+.pointer {
+    width: 0; 
+    height: 0; 
+    border-left: 15px solid transparent;
+    border-right: 15px solid transparent;
+    border-top: 30px solid #333;
+    position: absolute;
+    top: -20px;
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 10; /* Keeps it on top of the wheel */
+}
+
+button {
+    margin-top: 20px;
+    padding: 10px 20px;
+    font-size: 18px;
+    cursor: pointer;
+    background-color: #333;
+    color: white;
+    border: none;
+    border-radius: 5px;
+}
